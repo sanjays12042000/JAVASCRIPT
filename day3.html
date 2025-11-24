@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="flex items-center justify-center h-screen">
+        
+         <div class="flex flex-col items-center gap-3">
+            <h1 class="font-bold text-[40px]">Counter</h1>
+             <p id="count" class="text-[30px]">0</p>
+
+              <div class="flex gap-3">
+                     <button id="desbtn" class="px-3 py-2 border rounded-xl bg-slate-400 text-[20px] hover:text-red-700">Decrease</button>
+                     <button id="resbtn" class="px-3 py-2 border rounded-xl bg-slate-400 text-[20px]">Reset</button>
+                     <button id="incbtn" class="px-3 py-2 border rounded-xl bg-slate-400 text-[20px] hover:text-green-700">Increase</button>
+               </div>
+        </div>
+    </div>
+    
+   
+
+    <script>
+
+        var count =document.getElementById("count");
+        var desbtn=document.getElementById("desbtn");
+        var resbtn=document.getElementById("resbtn");
+        var incbtn=document.getElementById("incbtn");
+
+        function updatecolor() {
+           var value=parseInt(count.textContent);  
+           if (value < 0) {
+            count.style.color = "Red"
+           }  else if (value>0) {
+            count.style.color = "green"
+           }  else{
+            count.style.color = "black"
+           }
+        }
+
+        incbtn.addEventListener("click", ()=>{
+            count.textContent=parseInt(count.textContent) + 1;
+            updatecolor();
+        });
+
+
+         resbtn.addEventListener("click", ()=>{
+            count.textContent=0;
+            updatecolor();
+        });
+
+
+         desbtn.addEventListener("click", ()=>{
+            count.textContent=parseInt(count.textContent) - 1;
+            updatecolor();
+        });
+
+    </script>
+</body>
+</html>
